@@ -30,7 +30,7 @@ jobs:
           GOOGLE_AI_STUDIO__GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
           # PR Agent configuration
-          config.model: "gemini/gemini-2.5-flash"
+          config.model: "gemini/gemini-3.1-flash-lite-preview"
 
           # Description settings
           pr_description.publish_description_as_comment: "true"
