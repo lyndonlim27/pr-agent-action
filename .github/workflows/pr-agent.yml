@@ -1,0 +1,41 @@
+name: PR Agent
+
+on:
+  workflow_call:
+    secrets:
+      GEMINI_API_KEY:
+        required: true
+
+jobs:
+  pr_agent_job:
+    if: ${{ github.event.sender.type != 'Bot' }}
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    name: Run PR Agent on every PR
+
+    steps:
+      - name: PR Agent action step
+        uses: the-pr-agent/pr-agent@main
+        env:
+          # GitHub
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          # Google AI Studio
+          GOOGLE_AI_STUDIO__GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+          # PR Agent configuration
+          config.model: "gemini/gemini-2.5-flash"
+
+          # Reviewer settings
+          pr_reviewer.persistent_comment: "false"
+          pr_reviewer.num_max_findings: 10
+          pr_reviewer.enable_review_labels_security: "false"
+          pr_reviewer.enable_review_labels_effort: "false"
+
+          # Suggestion settings
+          pr_code_suggestions.persistent_comment: "false"
