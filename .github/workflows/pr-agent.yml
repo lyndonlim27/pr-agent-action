@@ -12,9 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
-      pull-requests: write
       issues: write
+      pull-requests: write
+      contents: write
+      checks: write
 
     name: Run PR Agent on every PR
 
