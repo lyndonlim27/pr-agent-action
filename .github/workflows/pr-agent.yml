@@ -31,11 +31,15 @@ jobs:
           # PR Agent configuration
           config.model: "gemini/gemini-2.5-flash"
 
-          # Reviewer settings
-          pr_reviewer.persistent_comment: "false"
-          pr_reviewer.num_max_findings: 10
-          pr_reviewer.enable_review_labels_security: "false"
-          pr_reviewer.enable_review_labels_effort: "false"
+          # Description settings
+          pr_description.publish_description_as_comment: "true"
+          pr_description.publish_description_as_comment_persistent: "false"
 
           # Suggestion settings
           pr_code_suggestions.persistent_comment: "false"
+          pr_code_suggestions.commitable_code_suggestions: "true"
+
+          # App settings
+          github_action_config.auto_review: "false"
+          github_action_config.auto_describe: "true"
+          github_action_config.auto_improve: "true"
