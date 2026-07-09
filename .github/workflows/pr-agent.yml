@@ -37,6 +37,7 @@ jobs:
           pr_description.publish_description_as_comment_persistent: "false"
           pr_description.add_original_user_description: "false"
           pr_description.enable_pr_type: "false"
+          pr_description.enable_pr_diagram: "false"
 
           # Suggestion settings
           pr_code_suggestions.persistent_comment: "false"
