@@ -42,6 +42,7 @@ jobs:
           # Suggestion settings
           pr_code_suggestions.persistent_comment: "false"
           pr_code_suggestions.commitable_code_suggestions: "true"
+          pr_code_suggestions.max_number_of_calls: "10"
 
           # App settings
           github_action_config.auto_review: "false"

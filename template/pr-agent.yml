@@ -1,0 +1,13 @@
+name: Run PR Review Agent
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+  issue_comment:
+  pull_request_review_comment:
+
+jobs:
+  pr-agent:
+    uses: 0Upjh80d/pr-agent-action/.github/workflows/pr-agent.yml@main
+    secrets:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
